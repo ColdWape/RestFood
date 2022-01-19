@@ -1,0 +1,145 @@
+﻿@model RestFood.Models.RegModel
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="../images/hero-bg.jpg" alt="">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                        <span>
+                            Feane
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  mx-auto ">
+                            @*<li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="menu.html">Menu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="book.html">Book Table</a>
+                                </li>*@
+                        </ul>
+                        <div class="user_option">
+                            @if (User.IsInRole("client"))
+                            {
+                                <a href="" class="user_link">
+                                    Корзина
+                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                </a>
+
+
+
+                                <a asp-action="Logout" asp-controller="Log" class="user_link">
+                                    Выход
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            }
+                            else if (User.IsInRole("admin"))
+                            {
+                                <a asp-action="CheckOrders" asp-controller="Work" class="user_link">
+
+                                    Работа
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                </a>
+
+
+
+                                <a asp-action="Logout" asp-controller="Log" class="user_link">
+                                    Выход
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            }
+                            else
+                            { <a asp-action="SignIn" asp-controller="Log" class="user_link">
+                                    Вход
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                            }
+
+
+
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+    </div>
+
+    <!-- book section -->
+    <section class="book_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Заказы
+                </h2>
+            </div>
+            <div class="row">
+                <div class="form_container" style=" width: 85%;">
+                    @{
+                        bool a = false;
+                        foreach (var item in ViewBag.AdminWork)
+                        {
+
+                            if (item.Status == "Payeed")
+                            {
+                                a = true;
+                                <div style="display: flex;  border-bottom: solid 1px; flex-basis: 0;  flex-wrap: wrap;">
+                                    <div style="flex: 1 1 160px;"><h5>@item.Client.Login</h5></div>
+
+                                    <div style="flex: 1 1 160px;"><h5>@item.Dish.Name</h5></div>
+
+                                    
+
+                                    <form asp-action="OrderIsReady" asp-controller="Work" asp-anti-forgery="true">
+                                        <input name="orderId" value="@item.Id" style="display:none">
+                                        <input style="padding: 0.3em;" type="submit" value="Блюдо готово" />
+
+
+                                    </form>
+                                </div>
+
+                            }
+
+
+
+
+                        }
+                        if (!a)
+                        {
+                            <div>
+                                Заказов нет
+                            </div>
+                        }
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end book section -->
+
+
+
+
+</body>
+
+

@@ -1,0 +1,279 @@
+﻿<body>
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="../images/hero-bg.jpg" alt="">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                        <span>
+                            Feane
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  mx-auto ">
+                            @*<li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="menu.html">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="book.html">Book Table</a>
+                            </li>*@
+                        </ul>
+                        <div class="user_option">
+                            @if (User.IsInRole("client"))
+                            {
+                                <a asp-action="Order" asp-controller="TheOrder" class="user_link">
+                                    Корзина  
+                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                </a>
+                                
+                                
+
+                                <a asp-action="Logout" asp-controller="Log" class="user_link">
+                                    Выход  
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            }
+                            else if (User.IsInRole("admin"))
+                            {
+                                <a asp-action="CheckOrders" asp-controller="Work" class="user_link">
+                                    Работа  
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                </a>
+                                
+                                
+
+                                <a asp-action="Logout" asp-controller="Log" class="user_link">
+                                    Выход  
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            }
+                            else
+                            { <a asp-action="SignIn" asp-controller="Log" class="user_link">
+                            Вход 
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                            }
+
+
+
+                            
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="slider_section ">
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Fast Food Restaurant
+                                        </h1>
+                                        <p>
+                                            Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                        </p>
+                                        <div class="btn-box">
+                                            <a href="" class="btn1">
+                                                Order Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Fast Food Restaurant
+                                        </h1>
+                                        <p>
+                                            Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                        </p>
+                                        <div class="btn-box">
+                                            <a href="" class="btn1">
+                                                Order Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Fast Food Restaurant
+                                        </h1>
+                                        <p>
+                                            Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                        </p>
+                                        <div class="btn-box">
+                                            <a href="" class="btn1">
+                                                Order Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <ol class="carousel-indicators">
+                        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                        <li data-target="#customCarousel1" data-slide-to="1"></li>
+                        <li data-target="#customCarousel1" data-slide-to="2"></li>
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+        <!-- end slider section -->
+    </div>
+
+    <!-- offer section -->
+    <br />
+    <br />
+
+    <!-- end offer section -->
+    <!-- food section -->
+
+    <section class="food_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Меню @User.Identity.Name
+                </h2>
+            </div>
+
+            <ul class="filters_menu">
+                <li class="active" data-filter="*">Все блюда</li>
+                <li data-filter=".burger">Бургеры</li>
+                <li data-filter=".pizza">Пицца</li>
+                <li data-filter=".pasta">Паста</li>
+                <li data-filter=".fries">Картоха фри</li>
+            </ul>
+
+
+            <div class="filters-content">
+                <div class="row grid">
+
+
+                    @foreach (var item in ViewBag.Dishes)
+                    {
+                        <div class="col-sm-6 col-lg-4 all @item.Type">
+                            <div class="box">
+                                <div>
+                                    <div class="img-box">
+                                        <img src="@item.Picture" alt="">
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            @item.Name
+                                        </h5>
+                                        <p>
+                                            @item.Info
+                                        </p>
+                                        <div class="options">
+                                            <h6>
+                                                $@item.Price
+                                            </h6>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <form asp-action="AddOrder" asp-controller="TheOrder" asp-anti-forgery="true">
+                                                    <input name="dishId" value="@item.Id" style="display:none">
+                                                    <button style="border-radius: 10px; border: none; background: yellow;">
+                                                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                                    </button>
+
+                                                </form>
+                                            }
+                                            else { 
+                                        <button style="border-radius: 10px; border: none; background: yellow;" onclick="alert('Чтобы сделать заказ необходимо войти')">
+                                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                        </button>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            @*<div class="btn-box">
+                <a href="">
+                    View More
+                </a>
+            </div>*@
+        </div>
+    </section>
+
+    <!-- end food section -->
+    <!-- about section -->
+
+    <section class="about_section layout_padding">
+        <div class="container  ">
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="images/about-img.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                                We Are Feane
+                            </h2>
+                        </div>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+                            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+                            the middle of text. All
+                        </p>
+                        <a href="">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about section -->
+    
+</body>
