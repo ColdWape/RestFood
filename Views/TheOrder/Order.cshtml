@@ -109,8 +109,8 @@
 
 
 
-                                    <div>
-                                        <h5 class="Price">@item.Dish.Price</h5>
+                                    <div style="display:flex;">
+                                        <h5>$</h5><h5 class="Price">@item.Dish.Price</h5>
                                     </div>
                                 </div>
                                 if (item.Status == "Payeed")
@@ -183,7 +183,7 @@
                         for (var i = 0; i < a.length; i++) {
                             b += parseInt(a[i].innerHTML);
                         }
-                        document.getElementById("itog").innerHTML = b + " руб";
+                        document.getElementById("itog").innerHTML = "$" + b;
                     }
 
                     window.onload = b;
